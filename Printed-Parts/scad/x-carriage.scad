@@ -8,6 +8,9 @@
 use <bearing.scad>
 use <extruder-body.scad>
 
+// move the nipple to the other side of the carriage
+swapEndstopNippleSide = true;
+
 
 //translate([-34,31,0]) rotate([0,180,180]) ext_body();
 
@@ -71,16 +74,44 @@ module x_carriage_base(){
  translate([-16.5+12,24.5,14])cylinder(r1=4.5, r2=3.8, h=2, $fn=25);
  
   // Endstop trigger nipple
-     difference(){  
-     union(){
-       translate([-2.5,-16,0]) cube([12,5.8,12]);
-       translate([-2.2,-12,0])cylinder(r=4.6, h=12, $fn=6); 
-       }
-       translate([5,-17,-1]) rotate([0,45,0]) cube([10,10,10]);
-       translate([-16.8,-22.6,-5]) rotate([45,45,0]) cube([10,15,10]);
-       translate([-4,-20,0]) rotate([45,-45,0]) cube([15,15,10]);
-       
-     }
+  
+  if( swapEndstopNippleSide )
+  {
+    translate([-33, 0, 12])
+    {
+        rotate( a = 180, v = [0, 1, 0])
+        {
+            difference()
+            {  
+                union()
+                {
+                    translate([-2.5,-16,0]) cube([12,5.8,12]);
+                    translate([-2.2,-12,0])cylinder(r=4.6, h=12, $fn=6); 
+                }
+                translate([5,-17,-1]) rotate([0,45,0]) cube([10,10,10]);
+                translate([-16.8,-22.6,-5]) rotate([45,45,0]) cube([10,15,10]);
+                translate([-4,-20,0]) rotate([45,-45,0]) cube([15,15,10]);
+            
+            }
+        }
+    }
+  }
+  else
+  {
+    difference()
+    {  
+        union()
+        {
+            translate([-2.5,-16,0]) cube([12,5.8,12]);
+            translate([-2.2,-12,0])cylinder(r=4.6, h=12, $fn=6); 
+        }
+        translate([5,-17,-1]) rotate([0,45,0]) cube([10,10,10]);
+        translate([-16.8,-22.6,-5]) rotate([45,45,0]) cube([10,15,10]);
+        translate([-4,-20,0]) rotate([45,-45,0]) cube([15,15,10]);
+    
+    }
+  }
+    
      
  // Belt Insert R
     difference(){
@@ -146,8 +177,22 @@ module x_carriage_fancy(){
  translate([0,36.5,23.5]) rotate([45,0,0]) translate([0,-15,0]) cube([20,10,10]);
  translate([-52.9,36.5+3,23.5]) rotate([45,0,0]) translate([0,-15,0]) cube([20,10,10]);   
     
- // Bottom ĺeft corner
- translate([-34,2,0]) translate([2,-11.5,-1]) rotate([0,0,-145]) translate([0,-15,0]) cube([30,30,34]);
+ // Bottom left corner
+ if( swapEndstopNippleSide )
+ {
+
+    translate([-33, 0,30])
+    {
+        rotate( a = 180, v = [0, 1, 0])
+        {
+            translate([-34,2,0]) translate([2,-11.5,-1]) rotate([0,0,-145]) translate([0,-15,0]) cube([30,30,34]);
+        }
+    }
+ }
+ else
+ {
+     translate([-34,2,0]) translate([2,-11.5,-1]) rotate([0,0,-145]) translate([0,-15,0]) cube([30,30,34]);
+ }
  // Top left corner
  translate([-33-13.5,-5,0]) translate([0,45+11.5,-1]) rotate([0,0,135]) translate([0,-15,0]) cube([30,30,20]);	
  translate([-23,72,14]) rotate([0,45,0]) translate([0,-15,0]) cube([5,25,5]);	   
