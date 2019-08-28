@@ -19,7 +19,11 @@ module x_carriage_base(){
  // Base plate
  translate([-33,-12,0]) cube([33,68.5,7]);
  // upper motor srew block
- translate([-19,56.8,0]) rotate([0,0,0]) cube([28.5,16.2,12]); 
+ difference()
+ {
+    translate([-19,56.8,0]) rotate([0,0,0]) cube([28.5,16.2,12]); 
+    translate([-15.6,61.8,-0.1]) rotate([0,0,0]) cube([18.5,6.2,12.2]); 
+ }
  
     // Extruder cable tray
  difference(){   
@@ -133,10 +137,6 @@ module x_carriage_holes(){
     
     translate([+12.5-3.5-2,19,-1])rotate([0,90-65,0])cube([10,55,30]);
     translate([-55.5+6.7+2,19,-10])rotate([0,-90+65,0])cube([10,40,30]);
-    
-  // Filament hole
-   translate([-33/2,7,1]) rotate([-15,0,0])cylinder(r=1.52, h=40, $fn=10); 
-   
 }
 
 module x_carriage_fancy(){
@@ -152,9 +152,6 @@ module x_carriage_fancy(){
  translate([-33-13.5,-5,0]) translate([0,45+11.5,-1]) rotate([0,0,135]) translate([0,-15,0]) cube([30,30,20]);	
  translate([-23,72,14]) rotate([0,45,0]) translate([0,-15,0]) cube([5,25,5]);	   
  translate([-23,84,21]) rotate([45,0,0]) translate([0,-15,0]) cube([45,5,5]);	   
-
-    translate([-8,64,5]) rotate([0,0,0]) cylinder(r=6, h=22, $fn=6); 
-    translate([-10,64,5]) rotate([0,0,0]) cylinder(r=6, h=22, $fn=6); 
     
 }
 
@@ -202,7 +199,7 @@ module upper_ziptie_holder()
                     }    
                 difference(){
                     translate([-23,11.5,15]) cube([13,7,9]);  
-                    #translate([-30,15.5,14.8]) rotate([0,90,0]) cylinder(r=2, h=22, $fn=30); 
+                    translate([-30,15.5,14.8]) rotate([0,90,0]) cylinder(r=2, h=22, $fn=30); 
                     translate([-24,11,18]) rotate([45,0,0]) cube([20,10,10]); 
                     }
                 }
@@ -250,7 +247,7 @@ module x_carriage(){
 }
 
 // belt keepout
-//%translate([-42-9,30-16,7])cube([70,16,10]);
+// %translate([-42-9,30-16,7])cube([70,16,10]);
 
 difference(){
 union(){
@@ -261,9 +258,6 @@ union(){
     //translate([5,-11.2,0]) cube([4.5,1,5]);        
     //translate([5.5,7.5,0]) cube([4,3.5,0.5]);    
 }
-translate([2.5,67.5,-50]) rotate([0,0,0]) cylinder(r=1.8, h=100, $fn=30);
-#translate([2.5,67.5,-0.1])cylinder(r1=2.1,r2=1.8, h=0.5, $fn=25);
-translate([2.5,67.5,5]) rotate([0,0,0]) cylinder(r=3.2, h=8, $fn=30);
 translate([0,21,0]) rotate([0,90,0]) cylinder(r=5.2, h=5.5, $fn=25);
 //translate([2 ,-5,-5])cube([20,50,30]);
 
