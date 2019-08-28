@@ -9,7 +9,21 @@ module body()
 {
 cube( [ 105.5 , 87.5 , 1 ] );  
 cube( [ 105.5 , 2 , 20 ] );  
-cube( [ 2 , 87.5 , 20 ] );  
+difference()
+{
+    {
+        cube( [ 2 , 87.5 , 20 ] );  
+    }
+    {
+        translate( [-0.1, 18, 11] )
+        {
+            cube( [2.2, 50, 9.1] );
+        }
+    }
+}
+
+
+
 
 // corner reinforcement
 translate( [ 98 , 1 , 0 ] ) cube( [ 7.5 , 5 , 20 ] );   
