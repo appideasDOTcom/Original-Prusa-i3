@@ -18,7 +18,7 @@ module x_end_motor_endstop_base(){
             // Base block
             cube([17,18.2,4]);
             // Nice edge
-            translate([-1,10,10])rotate([-45,0,0])cube(20,20,20);
+            translate([-1,10,10])rotate([-45,0,0])cube([20,20,20]);
             } 
         }
 }
@@ -91,7 +91,7 @@ module x_end_motor(){
   x_end_motor_holes();
   x_end_motor_endstop_holes();    
       
-      translate([-12,-42,65]) rotate([-35,0,0])  rotate([0,0,45]) cube(10,10,10);
+      translate([-12,-42,65]) rotate([-35,0,0])  rotate([0,0,45]) cube([10,10,10]);
       translate([-15,8.5,6]) rotate([90,0,0]) cylinder(h=5, r=5, $fn=30);   
       translate([-15,8.5,51]) rotate([90,0,0]) cylinder(h=5, r=5, $fn=30);   
       translate([-15,3.5,6]) rotate([90,0,0]) cylinder(h=3, r1=5, r2=4, $fn=30);   
