@@ -24,8 +24,13 @@ module x_carriage_base(){
  // upper motor srew block
  difference()
  {
-    translate([-19,56.8,0]) rotate([0,0,0]) cube([28.5,16.2,12]); 
-    translate([-15.6,61.8,-0.1]) rotate([0,0,0]) cube([18.5,6.2,12.2]); 
+    {
+        translate([-19,56.8,0]) rotate([0,0,0]) cube([28.5,16.2,12]); 
+    }
+    {
+        translate([-15.6,61.8,-0.1]) rotate([0,0,0]) cube([18.5,6.2,12.2]); 
+        translate([-33/2 -10,67.7,-10])rotate([-20,0,0])cube([35,9.75,25]);
+    }
  }
  
     // Extruder cable tray
