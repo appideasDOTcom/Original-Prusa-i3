@@ -7,6 +7,9 @@
 
 use <x-end.scad>
 
+// TODO: 1. Make idler pulley opening a tiny bit wider at the bottom, 
+// TODO: 2. Fix the distance between ends. It's ~4mm too narrow (add material to the linear rod receptacles to stop them short)
+
 
 
 module x_end_idler_holes(){
