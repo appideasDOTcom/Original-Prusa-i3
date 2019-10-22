@@ -7,7 +7,7 @@
 
 use <polyholes.scad>
 
-bearing_diameter = 14.5;
+bearing_diameter = 14.8; // The actual cutout below adds 0.1 to this number. Why set it here?!
 
 module horizontal_bearing_base(bearings=1){
  translate(v=[0,0,6]) cube(size = [24,8+bearings*25,12], center = true);	
