@@ -68,7 +68,7 @@ module x_end_idler(){
 }
 
 //difference(){
-x_end_idler();
+// x_end_idler();
 //translate([-15,-50,0])   cube([100,100,100]);
 //}
 
